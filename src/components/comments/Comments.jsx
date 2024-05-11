@@ -4,7 +4,8 @@ import Post from "../post/Post";
 import { usePost } from "../../hooks/posts";
 import NewComment from "./NewComment";
 import CommentsList from "./CommentsList";
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
+import Header from "../post/Header";
 const Comments = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const Comments = () => {
         <>
           <Post post={post} />
           <NewComment post={post} />
+          <Heading m="35px 0 5px 0">Comments</Heading>
           <CommentsList post={post} />
         </>
       ) : (

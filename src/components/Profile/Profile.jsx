@@ -43,10 +43,10 @@ const Profile = () => {
           <Button
             onClick={onOpen}
             variant="outline"
-            color="blue"
+            color="blue.600"
             size={isSmallScreen ? "sm" : "md"}
             borderWidth="1px"
-            borderColor="blue"
+            borderColor="blue.600"
             type="submit"
           >
             Change Picture
@@ -54,9 +54,16 @@ const Profile = () => {
         )}
       </Flex>
       <Flex gap="55px" pt="5px" mb="30px" className="profileFlex">
-        <Text fontWeight="500">Posts:{posts.length}</Text>
-        <Text fontWeight="500">Likes:To do!!</Text>
-        <Text fontWeight="500">Joined:{format(user.date, "MMM yyy")}</Text>
+        <Text>
+          <strong>Posts:</strong> {posts.length}
+        </Text>
+        <Text>
+          <strong>Likes:</strong> To do!!
+        </Text>
+        <Text>
+          {" "}
+          <strong>Joined:</strong> {format(user.date, "MMM yyy")}
+        </Text>
         <EditProfile isOpen={isOpen} onClose={onClose} />
       </Flex>
       {postsLoading ? (

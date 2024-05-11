@@ -9,7 +9,7 @@ const CommentsList = ({ post }) => {
   if (isLoading) return "Loading...";
 
   return (
-    <Box p="15px" mt="30px" w="35%" borderRadius="12px" className="box">
+    <Box p="15px" w="35%" borderRadius="12px" className="box">
       {comments.map((comment, index) => (
         <Comment key={index} comment={comment} />
       ))}

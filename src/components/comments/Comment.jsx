@@ -15,7 +15,7 @@ const Comment = ({ comment }) => {
   const { deleteComment, isLoading: commentLoading } = useDeleteComment(id);
   if (isLoading) return "Loading...";
   return (
-    <Box mb="25px" borderColor="gray.200" className="box">
+    <Box mb="20px" className="box" bg="whitesmoke" borderRadius="12" p={3}>
       <Flex gap="5px" mb="5px">
         <Avatar user={user} size="sm" />
         <Flex direction="column" justify="start">
@@ -26,7 +26,7 @@ const Comment = ({ comment }) => {
           </Text>
         </Flex>
       </Flex>
-      <Flex align="center" justify="space-between" pb="25px">
+      <Flex align="center" justify="space-between">
         <Text>{text}</Text>
         {!authLoading && authUser.id === uid && (
           <IconButton
@@ -42,7 +42,6 @@ const Comment = ({ comment }) => {
           />
         )}
       </Flex>
-      <hr></hr>
     </Box>
   );
 };

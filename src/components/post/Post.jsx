@@ -7,9 +7,8 @@ const Post = ({ post }) => {
     <Box
       w="50%"
       className="box"
-      p="0"
-      border="1px"
-      borderColor="gray.400"
+      p="2"
+      bg="gray.100"
       borderRadius="12px"
       mb="15px"
     >

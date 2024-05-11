@@ -10,7 +10,7 @@ const User = ({ user }) => {
       align="center"
       gap="10px"
       border="1px"
-      borderColor="gray.400"
+      borderColor="gray.300"
       borderRadius="12px"
       py="10px"
     >
@@ -21,11 +21,11 @@ const User = ({ user }) => {
       <Button
         as={Link}
         to={`/protected/profile/${user.id}`}
-        colorScheme="blue"
         w="80%"
+        borderColor="blue.600"
         size="sm"
         variant="outline"
-        color="blue"
+        color="blue.600"
       >
         View Profile
       </Button>

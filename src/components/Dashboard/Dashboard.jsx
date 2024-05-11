@@ -27,9 +27,9 @@ const Dashboard = () => {
             <Button
               mb="5px"
               variant="outline"
-              color="blue"
+              color="blue.600"
               size="sm"
-              borderColor="blue"
+              borderColor="blue.600"
               type="submit"
               isLoading={authLoading || addingPostLoading}
               loadingText="Posting..."
@@ -39,6 +39,7 @@ const Dashboard = () => {
             </Button>
           </Flex>
           <Textarea
+            borderRadius="12px"
             resize="none"
             placeholder="What's on your mind today?"
             {...register("text", { required: true })}

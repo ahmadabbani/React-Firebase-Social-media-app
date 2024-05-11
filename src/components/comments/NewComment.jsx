@@ -36,12 +36,12 @@ const NewComment = ({ post }) => {
           />
           <Button
             variant="outline"
-            color="blue"
+            color="blue.600"
             size="sm"
             p="0px 25px"
             fontSize="13px"
             borderWidth="1px"
-            borderColor="blue"
+            borderColor="blue.600"
             type="submit"
             isLoading={CommentLoading || authLoading}
           >
