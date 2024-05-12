@@ -3,7 +3,6 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 import Navbar from "./Navbar";
 import { Box } from "@chakra-ui/react";
-
 const Layout = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();

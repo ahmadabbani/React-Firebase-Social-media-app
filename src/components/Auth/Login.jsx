@@ -38,7 +38,7 @@ const Login = () => {
   }
   return (
     <Center w="100%" h="100vh">
-      <Box w="md" border="2px solid black" borderRadius="lg" p="4">
+      <Box w="sm" border="2px solid black" borderRadius="lg" p="4" m="0 35px">
         <Heading textAlign="center">Log in</Heading>
         <form onSubmit={handleSubmit(handleLogin)}>
           <FormControl isInvalid={errors.email} py="4">

@@ -39,7 +39,7 @@ const Register = () => {
   }
   return (
     <Center w="100%" h="100vh">
-      <Box w="md" border="2px solid black" borderRadius="lg" p="4">
+      <Box w="md" border="2px solid black" borderRadius="lg" p="4" m="0 25px">
         <Heading textAlign="center">Register</Heading>
         <form onSubmit={handleSubmit(handleRegister)}>
           <FormControl isInvalid={errors.username} py="4">
