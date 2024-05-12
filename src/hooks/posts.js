@@ -11,6 +11,7 @@ import {
   deleteDoc,
   where,
   getDocs,
+  onSnapshot,
 } from "firebase/firestore";
 import {
   useCollectionData,
@@ -18,7 +19,8 @@ import {
 } from "react-firebase-hooks/firestore";
 import { useToast } from "@chakra-ui/react";
 import { db } from "../lib/Firebase";
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
+
 const useAddPost = () => {
   const [isLoading, setLoading] = useState();
   const toast = useToast();
@@ -88,7 +90,6 @@ const useDeletePost = (id) => {
     await deleteDoc(docRef);
 
     //Delete comments related to the post
-
     const q = query(collection(db, "comments"), where("postId", "==", id));
 
     // It is required to get the data before deleting them in firestore
@@ -108,4 +109,35 @@ const useDeletePost = (id) => {
   return { deletePost, isLoading };
 };
 
-export { useAddPost, useShowPosts, useToggleLike, useDeletePost, usePost };
+const useTotalLikes = (id) => {
+  const [isLoading, setLoading] = useState(true);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const q = query(collection(db, "posts"), where("userid", "==", id));
+
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      let totalLikes = 0;
+      querySnapshot.forEach((doc) => {
+        let postData = doc.data();
+        totalLikes += postData.likes.length;
+      });
+      setTotal(totalLikes);
+      setLoading(false);
+    });
+
+    // Clean up the subscription on unmount
+    return () => unsubscribe();
+  }, [id]);
+
+  return { total, isLoading };
+};
+
+export {
+  useAddPost,
+  useShowPosts,
+  useToggleLike,
+  useDeletePost,
+  usePost,
+  useTotalLikes,
+};

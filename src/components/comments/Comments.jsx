@@ -5,7 +5,6 @@ import { usePost } from "../../hooks/posts";
 import NewComment from "./NewComment";
 import CommentsList from "./CommentsList";
 import { Box, Heading } from "@chakra-ui/react";
-import Header from "../post/Header";
 const Comments = () => {
   const { id } = useParams();
   const navigate = useNavigate();

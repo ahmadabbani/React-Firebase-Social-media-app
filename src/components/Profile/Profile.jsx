@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useUser } from "../../hooks/users";
 import PostsList from "../post/PostsList";
 import { useShowPosts } from "../../hooks/posts";
+import { useTotalLikes } from "../../hooks/posts";
 import {
   Button,
   Flex,
@@ -21,6 +22,7 @@ const Profile = () => {
   const { user, isLoading: userLoading } = useUser(id);
   const { posts, isLoading: postsLoading } = useShowPosts(id);
   const { user: authUser, isLoading: authLoading } = useAuth();
+  const { total, isLoading: likesLoading } = useTotalLikes(id);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isSmallScreen] = useMediaQuery("(max-width: 595px)");
 
@@ -58,7 +60,7 @@ const Profile = () => {
           <strong>Posts:</strong> {posts.length}
         </Text>
         <Text>
-          <strong>Likes:</strong> To do!!
+          <strong>Likes:</strong> {likesLoading ? "Loading..." : total}
         </Text>
         <Text>
           {" "}

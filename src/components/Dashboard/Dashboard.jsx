@@ -16,6 +16,7 @@ const Dashboard = () => {
     });
     reset();
   }
+
   const { posts, isLoading } = useShowPosts();
   if (isLoading) return "Loading Posts...";
   return (
